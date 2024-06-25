@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+        font-family: "Cantarell";
+        margin: 30px;
+        background: #043f34;
+        color: #ebf383;
+        padding-top: 5px;
+        min-height: 70px;
+        padding-bottom: 50px;
+        border-bottom: #ebf383 5px solid;
+    }
+    
+    .container {
+        width: 50%;
+        margin: auto;
+        overflow: hidden;
+        padding: 50px;
+        box-shadow: 0 0 70px #0a9279;
+    }
+    
+    nav ul li a {
+        color: #fff;
+    }
+    
+    #about-link, #contact-link {
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Todo List</h1>
+        <div id="todos" style="margin-bottom: 20px;"></div>
+    </div>
+    <script>
+        async function fetchTodos() {
+            const response = await fetch('/api/todolist');
+            const todos = await response.json();
+            const todosContainer = document.getElementById('todos');
+            todosContainer.innerHTML = '';
+            todos.forEach(todo => {
+                const todoElement = document.createElement('div');
+                todoElement.innerHTML = `<h3>${todo.work}</h3><p><strong>Duration:</strong> ${todo.durationInHrs} hours</p>`;
+                todosContainer.appendChild(todoElement);
+            });
+        }
+        fetchTodos();
+    </script>
+</body>
+</html>
