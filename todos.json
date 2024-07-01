@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "work": "Start production for summer covers on my second song",
+      "durationInHrs": 3
+    },
+    {
+      "work": "Go for Haircut",
+      "durationInHrs": 1
+    },
+    {
+      "work": "Complete SOC Assignment",
+      "durationInHrs": 3
+    }
+  ]
+}
